@@ -34,7 +34,7 @@ class Solution1:
 class Solution2:
     def allCellsDistOrder(self, R, C, r0, c0):
         matrix = [(i, j) for i in range(R) for j in range(C)]
-        matrix.sort(key=lambda x: abs(x[0] - r0) + abs(x[1] - c0))
+        matrix.sort(key=lambda x: abs(x[0] - r0) + abs(x[1] - c0)) #sort(key = lambda function)
         return matrix
 
 
@@ -73,15 +73,3 @@ class Solution3:
 
 
 
-
-
-
-
-
-
-
-
-
-S = Solution1()
-
-print(S.allCellsDistOrder(2,3,0,1))

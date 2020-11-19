@@ -51,17 +51,3 @@ class Solution:
         return dummyHead.next
 
 
-head = Solution()
-m = ListNode('4')
-m2 = ListNode('3')
-m3 = ListNode('2')
-m4 = ListNode('5')
-m.next = m2
-m2.next = m3
-m3.next = m4
-
-
-head.insertionSortList(m)
-print(m)
-
-

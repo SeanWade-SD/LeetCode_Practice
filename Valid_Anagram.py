@@ -16,7 +16,7 @@
 #
 # Source：力扣（LeetCode）
 # Link：https://leetcode-cn.com/problems/valid-anagram
-from filecmp import cmp
+
 
 
 class Solution:

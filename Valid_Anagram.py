@@ -49,15 +49,4 @@ class Solution1:
 
 
 
-m = Solution1()
-
-
-s = "anagram"
-t = "nagaram"
-
-print(m.isAnagram(s, t))
-
-
-
-
 

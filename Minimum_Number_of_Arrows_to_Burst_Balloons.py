@@ -36,44 +36,8 @@
 # Source：力扣（LeetCode）
 # Link：https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons
 
+
 class Solution:
-    def findMinArrowShots(self, points):
-        if len(points) == 1:
-            return 1
-
-        m = 0
-
-        while m < len(points) - 1:
-            n = m + 1
-            while n < len(points):
-
-                if (points[n][0] <= points[m][0]) & (points[m][1] <= points[n][1]):
-                    points.pop(n)
-
-                if (points[n][0] <= points[m][0]) & (points[m][0] <= points[n][1]) & (points[m][1] >= points[n][1]):
-                    points[m][1] = points[n][1]
-
-                    points.pop(n)
-
-                if (points[m][0] <= points[n][0]) & (points[n][1] >= points[m][1]) & (points[m][1] >= points[n][0]):
-                    points[m][0] = points[n][0]
-
-                if (points[n][0] >= points[m][0]) & (points[m][1] >= points[n][1]):
-                    points[m][0] = points[n][0]
-                    points[m][1] = points[n][1]
-
-                    points.pop(n)
-                n += 1
-                if n == len(points):
-                    break
-            m += 1
-            if m == len(points) - 1:
-                break
-
-        print(points[n][0])
-
-
-class Solution1:
     def findMinArrowShots(self, points):
         if not points:
             return 0
@@ -83,10 +47,13 @@ class Solution1:
         ans = 1
         for balloon in points:
             if balloon[0] > pos:
+                print(balloon[0] > pos)
                 pos = balloon[1]
                 ans += 1
 
         return ans
 
-
+# 考虑所有气球中右边界位置最靠左的那一个，那么一定有一支箭的射出位置就是它的右边界（否则就没有箭可以将其引爆了）。
+# 当我们确定了一支箭之后，我们就可以将这支箭引爆的所有气球移除，并从剩下未被引爆的气球中，
+# 再选择右边界位置最靠左的那一个，确定下一支箭，直到所有的气球都被引爆。
 

@@ -64,11 +64,29 @@ class Solution:
 
                     points.pop(n)
                 n += 1
+                if n == len(points):
+                    break
             m += 1
+            if m == len(points) - 1:
+                break
 
         print(points[n][0])
 
 
-s = Solution()
-points = [[10, 16], [2, 6], [7, 12]]
-s.findMinArrowShots(points)
+class Solution1:
+    def findMinArrowShots(self, points):
+        if not points:
+            return 0
+
+        points.sort(key=lambda balloon: balloon[1])
+        pos = points[0][1]
+        ans = 1
+        for balloon in points:
+            if balloon[0] > pos:
+                pos = balloon[1]
+                ans += 1
+
+        return ans
+
+
+
